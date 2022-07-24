@@ -12,8 +12,8 @@ class Card:
             '8':8, '9':9, '10':10, 'J':10, 'Q':10, 'K':10
         }
 
-        print('hello world')
-        return dict[self.value]
+        print(dict)
+
 
 
 

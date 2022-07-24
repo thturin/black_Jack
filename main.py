@@ -22,5 +22,6 @@ deck = Deck()
 deck.build()
 #deck.show()
 
-print(deck.cards[0].show)
+deck.cards[0].get_value
+print()
 #print(deck.cards[10].value)

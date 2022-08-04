@@ -6,10 +6,10 @@ class Card:
         self.value =val
 
     def show(self):
-        print('{} of {}'.format(self.value,self.suit),end='')
+        print('{} of {}\n'.format(self.value,self.suit),end='')
 
 
-    def get_value(self):
+    def get_value_num(self):
         dict = {
             'A':11, '2':2, '3':3, '4':4, '5':5, '6':6, '7':7,
             '8':8, '9':9, '10':10, 'J':10, 'Q':10, 'K':10
@@ -42,6 +42,7 @@ class Deck:
     def draw(self): #draw the cards
         return self.cards.pop() #return the top card of the deck
 
+
     #the maximum number of cards you can hold in a hand without busting is 11: 4 aces, 4 2's and 3 3's
 
 
@@ -59,17 +60,13 @@ class Player:
 
 
     def show_Hand(self):
-        if self.isDealer:
-            print('Dealer is dealt a ', end='')
-            self.hand[0].show()
-            print(' and a ', end='')
-            self.hand[1].show()
-        else:
-            print('Player is dealt a ', end='')
-            self.hand[0].show()
-            print(' and a ', end='')
-            self.hand[1].show()
-        print()
+        print('{} is dealt: '.format(self.name))
+        for card in self.hand:
+            card.show()
+        print('-------------')
+
+
+
 
     def handle_ace(self):
         if self.total + 11 < 21:
@@ -78,24 +75,23 @@ class Player:
             return 1
 
     def calculate_total(self):
-        for card in self.hand:
-            if card.value == 'A':
-                self.total+=self.handle_ace()
-            else:
-                self.total+=card.get_value()
-        print('{}s total is {}'.format(self.name, self.total))
-        return self.total
+        if self.hand[-1].value == 'A':
+            self.total+=self.handle_ace()
+        else:
+            self.total+=self.hand[-1].get_value_num() #add the last
+
 
 
     def dealer_check_total(self):
         pass
 
 
-    def hit_or_stand(self):
+    def hit_or_stand(self): #adding a card to the hand and calculating total both happen here
         print('{}, would you like to hit or stand? Enter h or s'.format(self.name))
         response = input()
         if response == 'h':
             self.hand.append(self.deck.draw())
+            self.calculate_total()
             return 'h'
         else:
             return 's'

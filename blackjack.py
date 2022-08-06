@@ -48,8 +48,6 @@ class Deck:
 
 
 
-
-
 class Player:
     def __init__(self, isDealer, name, deck):
         self.isDealer = isDealer
@@ -63,9 +61,13 @@ class Player:
         print('{} is dealt: '.format(self.name))
         for card in self.hand:
             card.show()
-        print('-------------')
+        print('---------------')
 
-
+    def first_two_draw(self):
+        self.hand.append(self.deck.draw())
+        self.total+=self.hand[0].get_value_num()
+        self.hand.append(self.deck.draw())
+        self.total+=self.hand[1].get_value_num()
 
 
     def handle_ace(self):

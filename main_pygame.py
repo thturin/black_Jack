@@ -5,22 +5,40 @@ WIDTH=800
 HEIGHT=600
 CENTER_X = WIDTH/2
 CENTER_Y = HEIGHT/2
+CENTER = (CENTER_X,CENTER_Y)
+BOTTOM_CENTER=(CENTER_X,HEIGHT-50)
 
+
+#flags
+clicked_play = False
 
 
 
 two_of_clubs = Actor('2_of_clubs_small', pos=(CENTER_X,CENTER_Y))
-# pygame.transform.scale()
-# two_of_clubs._surf = pygame.transform.scale(two_of_clubs._surf,(100,200))
-# two_of_clubs._update_pos()
+play_button = Actor('play_button_small', pos=(CENTER_X+100,CENTER_Y))
+
+
+
+
 
 def draw():
-    screen.fill('green')
+    screen.clear()
+    screen.fill('dark green')
     two_of_clubs.draw()
+    play_button.draw()
+
 
 def update():
-    pass
+    if not clicked_play:
+        welcome_setup()
 
+
+def welcome_setup():
+    screen.draw.text('Welcome to The Black Jack Table!', fontsize=60, center=BOTTOM_CENTER, color='black')
+    screen.draw.text('Click the play button. ')
+
+def show_timer():
+    pass
 
 
 pgzrun.go()

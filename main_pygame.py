@@ -13,7 +13,6 @@ BOTTOM_CENTER=(CENTER_X,HEIGHT-50)
 clicked_play = False
 
 
-
 two_of_clubs = Actor('2_of_clubs_small', pos=(CENTER_X,CENTER_Y))
 play_button = Actor('play_button_small', pos=(CENTER_X+100,CENTER_Y))
 
@@ -26,19 +25,13 @@ def draw():
     screen.fill('dark green')
     two_of_clubs.draw()
     play_button.draw()
+    # screen.draw.text('Welcome to The Black Jack Table!', fontsize=60, center=BOTTOM_CENTER, color='black')
+    screen.draw.text('Click the play button. ',pos=(0,0))
 
+def on_mouse_down(pos):
+    if play_button.collidepoint(pos):
+        print('true')
 
-def update():
-    if not clicked_play:
-        welcome_setup()
-
-
-def welcome_setup():
-    screen.draw.text('Welcome to The Black Jack Table!', fontsize=60, center=BOTTOM_CENTER, color='black')
-    screen.draw.text('Click the play button. ')
-
-def show_timer():
-    pass
 
 
 pgzrun.go()

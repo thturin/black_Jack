@@ -1,5 +1,6 @@
 import pgzrun, pygame
 from blackjack import Card, Deck, Player
+from os import walk
 
 #constants
 WIDTH=1280
@@ -59,17 +60,38 @@ nine_of_clubs = Actor('9_of_clubs_small',pos=CENTER)
 nine_of_diamonds = Actor('9_of_diamonds_small',pos=CENTER)
 nine_of_hearts = Actor('9_of_hearts_small',pos=CENTER)
 nine_of_spades = Actor('9_of_spades_small',pos=CENTER)
-
+ten_of_clubs = Actor('10_of_clubs_small',pos=CENTER)
+ten_of_diamonds = Actor('10_of_diamonds_small',pos=CENTER)
+ten_of_hearts = Actor('10_of_hearts_small',pos=CENTER)
+ten_of_spades = Actor('10_of_spades_small',pos=CENTER)
+ace_of_clubs = Actor('2_of_clubs_small',pos=CENTER)
+ace_of_diamonds = Actor('ace_of_diamonds_small',pos=CENTER)
+ace_of_hearts = Actor('ace_of_hearts_small',pos=CENTER)
+ace_of_spades = Actor('ace_of_spades_small',pos=CENTER)
+jack_of_clubs = Actor('jack_of_clubs_small',pos=CENTER)
+jack_of_diamonds = Actor('jack_of_diamonds_small',pos=CENTER)
+jack_of_hearts = Actor('jack_of_hearts_small',pos=CENTER)
+jack_of_spades = Actor('jack_of_spades_small',pos=CENTER)
+queen_of_clubs = Actor('queen_of_clubs_small',pos=CENTER)
+queen_of_diamonds = Actor('queen_of_diamonds_small',pos=CENTER)
+queen_of_hearts = Actor('queen_of_hearts_small',pos=CENTER)
+queen_of_spades = Actor('queen_of_spades_small',pos=CENTER)
+king_of_clubs = Actor('king_of_clubs_small',pos=CENTER)
+king_of_diamonds = Actor('king_of_diamonds_small',pos=CENTER)
+king_of_hearts = Actor('king_of_hearts_small',pos=CENTER)
+king_of_spades = Actor('king_of_spades_small',pos=CENTER)
 play_button = Actor('play_button_small', pos=(CENTER_X,CENTER_Y+100))
 
 
+for _,_,img_files in walk:
+    for image in img_files:
 
 
 
 def draw():
     screen.clear()
     screen.fill('dark green')
-    ·two_of_hearts.draw()
+    ten_of_hearts.draw()
     if clicked_play == False:
         play_button.draw()
         screen.draw.text('Welcome to The Black Jack Table!', fontsize=60, center=BOTTOM_CENTER, color='black')

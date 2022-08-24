@@ -1,5 +1,4 @@
 import random
-import pgzrun
 from blackjack import Card, Deck, Player
 """
 Project No. BlackJack ( oop)
@@ -21,8 +20,6 @@ deck.shuffle()
 dealer = Player(True,'Dealer',deck)
 player = Player(False, 'Player', deck)
 
-def draw():
-    screen.fill('green')
 
 
 def final_standings():
@@ -36,7 +33,7 @@ def final_standings():
     print('----------------------')
 
 def main():
-    global game_over, draw_two, both_hit, dealer_stay, player_stay
+    global game_over, draw_two, both_hit, dealer_stay, player_stay, counter
     while not game_over:
         while draw_two:
             dealer.first_two_draw()
@@ -64,11 +61,10 @@ def main():
             if counter == 2: #both players are staying
                 both_hit = False
                 game_over = True
+    final_standings()
 
+main()
 
-#
-# final_standings()
-pgzrun.go()
 
 
 
